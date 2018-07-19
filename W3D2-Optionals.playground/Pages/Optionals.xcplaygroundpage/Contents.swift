@@ -32,7 +32,7 @@ var convertedNum = Double(numberString) //convert numberString to a Double
 //:
 //: So now let's try to add 1 to our `convertedNum` variable.
 
-//convertedNum = convertedNum + 1 // uncomment this line!
+convertedNum = convertedNum! + 1 // uncomment this line!
 
 //: Looks like the compiler doesn't like that! It's giving us a cryptic error about applying binary operators and types and things, and offers the suggestion of adding an exclaimation point!
 //:
@@ -46,10 +46,8 @@ var convertedNum = Double(numberString) //convert numberString to a Double
 //:
 //: Use the example above to write code that tries to convert `inputString` into an `Int`.
 
-var inputString = "hello"
-// try to convert inputString to an Int here:
-
-
+var inputString = "hello"// try to convert inputString to an Int here:
+var convertedString = Int(inputString)
 //: If you've done everything right you should see "nil" along the right-hand gutter of the playground. This is what we use to represent "nothing". Only optional variables can have a value of `nil`.
 //:
 //: ## Challenge 2
@@ -61,7 +59,8 @@ var inputString = "hello"
 //: Then, change the string "1" to "🔥" and observe how the playground responds (or doesn't respond)
 
 var number = Int("1")
-// number + 1 // uncomment and fix this.
+ number! + 1
+number! + 🔥
 
 
 //: In general, force unwrapping is always a risk for a crash, and should be used sparingly and with caution.
@@ -77,10 +76,10 @@ var number = Int("1")
 //: Switch the string we're converting in Challenge 2 to something that succeeds and back to something that fails and observe how different bits of code get run.
 
 if let unwrapped = number {
-    // unwrapped exists in this block, and is number unwrapped.
+                                // unwrapped exists in this block, and is number unwrapped.
     print("\(unwrapped) is an Int and no longer an Int?")
 }else{
-    // unwrapped doesn't exist in this block.
+                                // unwrapped doesn't exist in this block.
     print("number did not unwrap")
 }
 
@@ -89,7 +88,11 @@ if let unwrapped = number {
 //: Here's an optional variable. Conditionally unwrap and print it if it exists, print "no greeting" if it doesn't exist.
 
 var greeting: String? = "Aloha!"
-
+if let unwrapGreeting = greeting {
+    print("\(unwrapGreeting) is a String and no longer a String?")
+}else{
+    print("string did not unwrap")
+}
 
 //: ## One last thing...
 //:
